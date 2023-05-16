@@ -1,15 +1,70 @@
 <%- include('partials/header') %>
 
-<div class="container mt-5">
-  <h1>Login</h1>
 
-  <div class="row">
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Sign In</h3>
+				<div class="d-flex justify-content-end social_icon">
+					<span>
+          
+            <!-- <a href="/auth/facebook" role="button"> -->
+              <a  href="/auth/facebook" role="button"><i class="fab fa-facebook-square"></i></a>
+            <!-- </a> -->
+          
+          </span>
+       
+					<span>
+            <a href="/auth/google" role="button"><i class="fab fa-google-plus-square"></i></a>
+          </span>
+				</div>
+			</div>
+			<div class="card-body">
+				
+        <form action="/login" method="POST">
+					
+          <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="email" class="form-control" placeholder="email" name="username">
+					</div>
+
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" placeholder="password"  name="password">
+					</div>
+
+					<div class="form-group">
+						<input type="submit" value="Login" class="btn float-right login_btn">
+					</div>
+
+				</form>
+
+			</div>
+			<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+					Don't have an account?
+          <a href="/register">Sign Up <span class="hover"><u>here</u></span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- <div class="container mt-5">
+  <h1>Login</h1> -->
+
+  <!-- <div class="row">
     <div class="col-sm-8">
       <div class="card">
-        <div class="card-body">
+        <div class="card-body"> -->
 
           <!-- Makes POST request to /login route -->
-          <form action="/login" method="POST">
+          <!-- <form action="/login" method="POST">
             <div class="form-group">
               <label for="email">Email</label>
               <input type="email" class="form-control" name="username">
@@ -23,9 +78,9 @@
 
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="col-sm-4">
+    <!-- <div class="col-sm-4">
       <div class="card">
         <div class="card-body">
           <a class="btn btn-block btn-social btn-google" href="/auth/google" role="button">
@@ -41,6 +96,6 @@
     </div>
 
   </div>
-</div>
+</div> -->
 
 <%- include('partials/footer') %>

@@ -10,6 +10,9 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const findOrCreate = require("mongoose-findorcreate");
+const flash = require("connect-flash");
+
+
 
 const app = express(); 
 
@@ -27,6 +30,7 @@ app.use(
     saveUninitialized: false
   }));
 
+ 
 
   // Le digo a la app que use passport y lo inicializamos
 app.use(passport.initialize());
@@ -207,11 +211,14 @@ app.get("/logout", function(req, res, next){
 
 
 app.post("/register", function(req, res){
+// Prueba codigo
 
+const passw1 = req.body.password
+const passw2 = req.body.confirmpassword
 
+if (passw1 === passw2){
 
-
-User.register(
+  User.register(
     {username:req.body.username}, //JS Object // Esto viene de passport-local.mongoose
     req.body.password,
     function(err, user){
@@ -225,6 +232,11 @@ User.register(
     }
     }
     );
+
+} else {  
+  console.log("Las constraseñas no coinciden");
+        res.redirect("/register");
+}
 });
 
 
